@@ -1,13 +1,14 @@
 # preprocess.py
 
-import sys
 import pysqlite3
-sys.modules["sqlite3"] = pysqlite3
+import sys
+sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
+
 
 import os
 import PyPDF2
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from dotenv import load_dotenv
 
