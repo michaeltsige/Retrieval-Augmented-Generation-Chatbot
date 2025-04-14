@@ -1,9 +1,8 @@
 # preprocess.py
 
-import pysqlite3
 import sys
-sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
-
+import pysqlite3
+sys.modules["sqlite3"] = pysqlite3
 
 import os
 import PyPDF2
